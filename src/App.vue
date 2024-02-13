@@ -20,11 +20,13 @@ export default {
   methods: {
     getData(){
 
-    axios
-    .get(store.ApiUrl)
-    .then( ( res )=>{
-      store.ArrayFilm = res.data.results
+      store.ArrayFilm = 'https://api.themoviedb.org/3/search/movie?api_key=e9bea1bbfcbef47aa2b5ed1adebfd849&query='
 
+    axios
+    .get(`https://api.themoviedb.org/3/search/movie?api_key=e9bea1bbfcbef47aa2b5ed1adebfd849&query=${store.searchText}`)
+    .then( ( res )=>{
+      console.log(res.data.results)
+      store.ArrayFilm = res.data.results
     })
 
     }
