@@ -2,6 +2,7 @@
 import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
 import axios from 'axios'
+import { store } from './store'
 
 export default {
   components: {
@@ -10,6 +11,21 @@ export default {
   },
   data() {
     return {
+      store
+    }
+  },
+  mounted() {
+    this.getData()
+  },
+  methods: {
+    getData(){
+
+    axios
+    .get(store.ApiUrl)
+    .then( ( res )=>{
+      store.ArrayFilm = res.data.results
+
+    })
 
     }
   },
