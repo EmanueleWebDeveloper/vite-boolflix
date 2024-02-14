@@ -7,40 +7,44 @@ import { store } from './store'
 export default {
   components: {
     AppHeader,
-    AppMain,
+    AppMain
   },
   data() {
     return {
       store
     }
   },
-  mounted() {
-    this.getData()
-  },
   methods: {
-    getData(){
 
-      store.ArrayFilm = 'https://api.themoviedb.org/3/search/movie?api_key=e9bea1bbfcbef47aa2b5ed1adebfd849&query='
+    getSearch() {
 
-    axios
-    .get(`https://api.themoviedb.org/3/search/movie?api_key=e9bea1bbfcbef47aa2b5ed1adebfd849&query=${store.searchText}`)
-    .then( ( res )=>{
-      console.log(res.data.results)
-      store.ArrayFilm = res.data.results
-    })
+      store.apiSearchMulti = 'https://api.themoviedb.org/3/search/multi?api_key=5ab2b0cfcfeb10eeaa0adb6b3787dbee&query='
+
+      axios
+        .get(`https://api.themoviedb.org/3/search/multi?api_key=5ab2b0cfcfeb10eeaa0adb6b3787dbee&query=${store.searchText}`)
+        .then(res => {
+          console.log(res.data)
+          store.arraySearch = res.data.results
+        })
+
 
     }
+
   },
+  mounted() {
+    this.getSearch()
+  }
 }
+
 </script>
 
+
 <template>
-  <div>
-    <AppHeader/>
-    <AppMain/>
-  </div>
+  <AppHeader @performSearch="getSearch" />
+  <AppMain />
 </template>
 
-<style lang="scss">
 
+<style lang="scss">
+@use './style/general.scss' as *;
 </style>
