@@ -5,7 +5,7 @@
         <h2>{{ propsTitle }}</h2>
         <h3>{{ propsOriginalTitle }}</h3>
       </div>
-      <ul class="d-flex">
+      <ul class="d-flex align-center"> <!-- Aggiunto classe align-center per centrare gli elementi -->
         <span :class="`lang-icon lang-icon-${propsLang}`"></span>
         <li v-for="(element, index) in 5" :key="index">
           <i class="fa-star" :class="(element <= Math.ceil(propsVote / 2)) ? 'fas' : 'far'"></i>
@@ -50,6 +50,7 @@
   
   .card-body {
     padding: 1.5rem;
+    text-align: center;
   }
   
   h2, h3 {
@@ -71,8 +72,10 @@
     margin: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 4px;
   }
+  
   
   .fa-star {
     color: #FFC700;
