@@ -6,7 +6,7 @@
                     :propsTitle="element.title || element.name"
                     :propsOriginalTitle="element.original_title || element.original_name"
                     :propsLang="element.original_language" 
-                    :propsVote="(Math.ceil(element.vote_average / 2))" 
+                    :propsVote="element.vote_average" 
                     :propsImg="element.poster_path"/>
             </div>
         </div>
