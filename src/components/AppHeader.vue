@@ -1,8 +1,9 @@
 <template>
     <header>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container">
-                <form class="d-flex" role="search">
+        <nav class="navbar bg-body-danger">
+  <div class="container-fluid ">
+    <a class="navbar-brand text-danger fs-1">BOOLFLIX</a>
+    <form class="d-flex" role="search">
                     <input 
                     class="form-control me-2" 
                     type="search" 
@@ -14,8 +15,9 @@
                     class="btn btn-outline-danger"
                     type="submit">Search</button>
                 </form>
-            </div>
-        </nav>
+  </div>
+</nav>
+       
     </header>
 </template>
 
